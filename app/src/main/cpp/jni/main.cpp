@@ -31,7 +31,8 @@ void WNGTA()
 
     DobbyHook((void *)GTA(0x45D4E8), (void *)TouchEvent_hook, (void **)&TouchEvent);
 #elif defined(IS_ARM32)
-    DobbyHook((void *)GTA(0x3199EC), (void *)TouchEvent_hook, (void **)&TouchEvent);
+    //DobbyHook((void *)GTA(0x3199EC), (void *)TouchEvent_hook, (void **)&TouchEvent);
+    LOGI("32");
 
 #endif
 }
@@ -92,7 +93,8 @@ extern "C" JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void* reserved)
         return JNI_ERR;
     }
 
-    g_pStorage = MAKEOBF("/storage/emulated/0/Android/data/com.rockstargames.gtavc/files/");
+    g_pStorage = (char *)GTA(VER_x32 ? 0x751838 : 0x9C8E58); //(/storage/emulated/0/Android/data/com.rockstargames.gtavc/files/)
+    LOGI("PATH %s", g_pStorage);
 
 	return JNI_VERSION_1_6;
 }

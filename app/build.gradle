@@ -9,7 +9,7 @@ android {
     defaultConfig {
         applicationId "com.rockstargames.gtavc"
         minSdkVersion 21
-        targetSdkVersion 28
+        targetSdkVersion 34
         versionCode 1
         versionName "1.0"
 

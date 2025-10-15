@@ -30,6 +30,7 @@ void LoadingScreen_hook(const char *text, const char *text1, const char *text2)
     LOGI(MAKEOBF("text %s"), text);
     LOGI(MAKEOBF("text %s"), text1);
     LOGI(MAKEOBF("text %s"), text);
+    LOGI("PATH %s", g_pStorage);
     return LoadingScreen(text, text1, text2);
 }
 void (*CHud_Draw)(uintptr_t);
@@ -52,11 +53,12 @@ void CHooks::InitHooksEdgar() {
     DobbyHook((void *)GTA(0x4609CC), (void *)OS_ServiceOpenLink_hook, (void **)&OS_ServiceOpenLink);
 
     #elif defined(IS_ARM32)
-    DobbyHook((void *)GTA(0x155848), (void *)CMenuManager_ProcessButtonPresses_hook, (void **)&CMenuManager_ProcessButtonPresses);
+    /*DobbyHook((void *)GTA(0x155848), (void *)CMenuManager_ProcessButtonPresses_hook, (void **)&CMenuManager_ProcessButtonPresses);
     DobbyHook((void *)GTA(0x152070), (void *)CMenuManager_DrawLoadingScreen_hook, (void **)&CMenuManager_DrawLoadingScreen);
-    DobbyHook((void *)GTA(0x14E164), (void *)LoadingScreen_hook, (void **)&LoadingScreen);
+    DobbyHook((void *)GTA(0x14E164), (void *)LoadingScreen_hook, (void **)&LoadingScreen);*/
     //DobbyHook((void *)GTA(0x1E8278), (void *)CHud_Draw_hook, (void **)&CHud_Draw);
     //DobbyHook((void *)GTA(0x3AC59C), (void *)NvUtilInit_hook, (void **)NvUtilInit);
-    DobbyHook((void *)GTA(0x322D18), (void *)OS_ServiceOpenLink_hook, (void **)&OS_ServiceOpenLink);
+    //DobbyHook((void *)GTA(0x322D18), (void *)OS_ServiceOpenLink_hook, (void **)&OS_ServiceOpenLink);
+    LOGI("32");
     #endif
 }

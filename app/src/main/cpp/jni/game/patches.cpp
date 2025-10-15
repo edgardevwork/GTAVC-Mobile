@@ -19,8 +19,6 @@ void ApplyPatches()
 
     DisableAutoAim();
 
-    LOGI(CHook::getSym("StorageRootBuffer_ptr") + "EDGAR PATH");
-
     CHook::CallFunction<void>(OBF("_Z17SunnyWeatherCheatv"));
 
     CHook::RET(OBF("_Z12WeaponCheat1v")); // CCheat::WeaponCheat1
