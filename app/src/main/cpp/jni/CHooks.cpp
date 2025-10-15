@@ -39,12 +39,17 @@ void CHud_Draw_hook(uintptr_t thiz)
     //LOGI("libGTAVC.so: Patching the game...");
     return;
 }
-
-//#include "game/hooks.h"
+#include "patch.h"
+#include "game/hooks.h"
 #include "dependencies/Dobby/include/dobby.h"
 void CHooks::InitHooksEdgar() {
+    CHook::InlineHook("_Z13LoadingScreenPKcS0_S0_", &LoadingScreen_hook, &LoadingScreen);
+    CHook::InlineHook("_ZN12CMenuManager20ProcessButtonPressesEv", &CMenuManager_ProcessButtonPresses_hook, &CMenuManager_ProcessButtonPresses);
+    CHook::InlineHook("_ZN12CMenuManager17DrawLoadingScreenEv", &CMenuManager_DrawLoadingScreen_hook, &CMenuManager_DrawLoadingScreen);
+    CHook::InlineHook("_Z18OS_ServiceOpenLinkPKc", &OS_ServiceOpenLink_hook, &OS_ServiceOpenLink);
+    CHook::InlineHook("_ZN4CHud4DrawEv", &CHud_Draw_hook, &CHud_Draw);
 
-    #ifdef IS_ARM64
+    /*#ifdef IS_ARM64
     DobbyHook((void *)GTA(0x206490), (void *)CMenuManager_ProcessButtonPresses_hook, (void **)&CMenuManager_ProcessButtonPresses);
     DobbyHook((void *)GTA(0x201F00), (void *)CMenuManager_DrawLoadingScreen_hook, (void **)&CMenuManager_DrawLoadingScreen);
     DobbyHook((void *)GTA(0x1F8CC8), (void *)LoadingScreen_hook, (void **)&LoadingScreen);
@@ -53,12 +58,12 @@ void CHooks::InitHooksEdgar() {
     DobbyHook((void *)GTA(0x4609CC), (void *)OS_ServiceOpenLink_hook, (void **)&OS_ServiceOpenLink);
 
     #elif defined(IS_ARM32)
-    /*DobbyHook((void *)GTA(0x155848), (void *)CMenuManager_ProcessButtonPresses_hook, (void **)&CMenuManager_ProcessButtonPresses);
-    DobbyHook((void *)GTA(0x152070), (void *)CMenuManager_DrawLoadingScreen_hook, (void **)&CMenuManager_DrawLoadingScreen);
-    DobbyHook((void *)GTA(0x14E164), (void *)LoadingScreen_hook, (void **)&LoadingScreen);*/
-    //DobbyHook((void *)GTA(0x1E8278), (void *)CHud_Draw_hook, (void **)&CHud_Draw);
-    //DobbyHook((void *)GTA(0x3AC59C), (void *)NvUtilInit_hook, (void **)NvUtilInit);
-    //DobbyHook((void *)GTA(0x322D18), (void *)OS_ServiceOpenLink_hook, (void **)&OS_ServiceOpenLink);
+    CHook::InlineHook("_Z13LoadingScreenPKcS0_S0_", &LoadingScreen_hook, &LoadingScreen);
+    CHook::InlineHook("_ZN12CMenuManager20ProcessButtonPressesEv", &CMenuManager_ProcessButtonPresses_hook, &CMenuManager_ProcessButtonPresses);
+    CHook::InlineHook("_ZN12CMenuManager17DrawLoadingScreenEv", &CMenuManager_DrawLoadingScreen_hook, &CMenuManager_DrawLoadingScreen);
+    CHook::InlineHook("_Z18OS_ServiceOpenLinkPKc", &OS_ServiceOpenLink_hook, &OS_ServiceOpenLink);
+    CHook::InlineHook("_ZN4CHud4DrawEv", &CHud_Draw_hook, &CHud_Draw);
+    //CHook::InlineHook("_Z10NvUtilInitv", (void *)NvUtilInit_hook, (void **)NvUtilInit);
     LOGI("32");
-    #endif
+    #endif*/
 }

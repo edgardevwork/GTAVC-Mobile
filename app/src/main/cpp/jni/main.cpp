@@ -25,16 +25,9 @@ void TouchEvent_hook(int type, int num, int posX, int posY) {
     return TouchEvent(type, num, posX, posY);
 }
 
-void WNGTA() 
+void EDGTA()
 {
-#ifdef IS_ARM64
-
-    DobbyHook((void *)GTA(0x45D4E8), (void *)TouchEvent_hook, (void **)&TouchEvent);
-#elif defined(IS_ARM32)
-    //DobbyHook((void *)GTA(0x3199EC), (void *)TouchEvent_hook, (void **)&TouchEvent);
-    LOGI("32");
-
-#endif
+    CHook::InlineHook("_Z14AND_TouchEventiiii", &TouchEvent_hook, &TouchEvent);
 }
 
 extern "C" JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void* reserved)
@@ -82,7 +75,7 @@ extern "C" JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void* reserved)
 	if(g_libGTAVC)
 	{
         CHook::InitHookStuff();
-        WNGTA();
+        EDGTA();
         Hooks::InstallCHooks();
         InitRenderWareFunctions();
         pGame->InitGame();
