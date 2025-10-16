@@ -15,7 +15,7 @@ CMenuManager& FrontEndMenuManager = *(CMenuManager *)0x0;
 CMenuScreen* aScreens = (CMenuScreen*)0x0;
 
 void CMenuManager::MessageScreen(const char* pText, bool bFullscreen) {
-    return CHook::CallFunction<void>("_ZN12CMenuManager13MessageScreenEPKcb",this, pText, bFullscreen);
+    return CHook::CallFunction<void>("_ZN12CMenuManager13MessageScreenEPKcb", this, pText, bFullscreen);
 }
 
 int CMenuManager::FadeIn(int alpha) {
@@ -89,6 +89,20 @@ void CMenuManager__LoadSettings__hook(CMenuManager* this_) {
     return CMenuManager__LoadSettings(this_);
 }
 
+void (*CMenuManager__ProcessButtonPresses)(uintptr_t);
+void CMenuManager__ProcessButtonPresses__hook(uintptr_t thiz)
+{
+    LOGI(MAKEOBF("CMenuManager::ProcessButtonPresses called at %p"), thiz);
+    return CMenuManager__ProcessButtonPresses(thiz);
+}
+
+void (*CMenuManager__DrawLoadingScreen)(uintptr_t);
+void CMenuManager__DrawLoadingScreen__hook(uintptr_t thiz)
+{
+    LOGI(MAKEOBF("CMenuManager::DrawLoadingScreen called at %p"), thiz);
+    return CMenuManager__DrawLoadingScreen(thiz);
+}
+
 void (*CMenuManager__MessageScreen)(CMenuManager*, const char*, bool);
 void CMenuManager__MessageScreen__hook(CMenuManager* this_, const char* pText, bool bFullscreen) {
     LOGI(MAKEOBF("CMenuManager::MessageScreen called at %p with text=%s, fullscreen=%d"), this_, pText, bFullscreen);
@@ -149,6 +163,8 @@ void CMenuManager::InjectHooks() {
     CHook::InlineHook(OBF("_ZN12CMenuManager12SaveSettingsEv"), &CMenuManager__SaveSettings__hook, &CMenuManager__SaveSettings);
     CHook::InlineHook(OBF("_ZN12CMenuManager12LoadSettingsEv"), &CMenuManager__LoadSettings__hook, &CMenuManager__LoadSettings);
     CHook::InlineHook(OBF("_ZN12CMenuManager13MessageScreenEPKcb"), &CMenuManager__MessageScreen__hook, &CMenuManager__MessageScreen);
+    CHook::InlineHook(OBF("_ZN12CMenuManager20ProcessButtonPressesEv"), &CMenuManager__ProcessButtonPresses__hook, &CMenuManager__ProcessButtonPresses);
+    CHook::InlineHook(OBF("_ZN12CMenuManager17DrawLoadingScreenEv"), &CMenuManager__DrawLoadingScreen__hook, &CMenuManager__DrawLoadingScreen);
     CHook::InlineHook(OBF("_ZN12CMenuManager6FadeInEi"), &CMenuManager__FadeIn__hook, &CMenuManager__FadeIn);
     CHook::InlineHook(OBF("_ZN12CMenuManager10CheckHoverEiiii"), &CMenuManager__CheckHover__hook, &CMenuManager__CheckHover);
     CHook::InlineHook(OBF("_ZN12CMenuManager17DisplayHelperTextEPc"), &CMenuManager__DisplayHelperText__hook, &CMenuManager__DisplayHelperText);

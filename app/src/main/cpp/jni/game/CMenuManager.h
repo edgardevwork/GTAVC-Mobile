@@ -313,7 +313,7 @@ public:
     void SwitchMenuOnAndOff();
     int CheckSliderMovement(char value);
     //void ChangeRadioStation(char value);
-    void Draw(int unk);
+    void Draw();
     //void UserInput();
     void PrintMap();
     void LoadSettings();

@@ -8,18 +8,6 @@ void TouchEvent_hook(int type, int num, int posX, int posY) {
     return TouchEvent(type, num, posX, posY);
 }
 
-void (*CMenuManager_ProcessButtonPresses)(uintptr_t);
-void CMenuManager_ProcessButtonPresses_hook(uintptr_t thiz)
-{
-    //LOGI("libGTAVC.so: Patching the game...")
-    return CMenuManager_ProcessButtonPresses(thiz);
-}
-void (*CMenuManager_DrawLoadingScreen)(uintptr_t);
-void CMenuManager_DrawLoadingScreen_hook(uintptr_t thiz)
-{
-    return CMenuManager_DrawLoadingScreen(thiz);
-}
-
 void (*GameInit)(char, const char *, const char *);
 void GameInit_hook(char a1, const char *a2, const char *a3) {
     LOGI(MAKEOBF("EDGAR AAA"));
@@ -56,9 +44,6 @@ int OS_MovieIsPlaying__hook(int *i) {
 #include "dependencies/Dobby/include/dobby.h"
 void CHooks::InitHooksEdgar() {
     CHook::InlineHook(OBF("_Z14AND_TouchEventiiii"), &TouchEvent_hook, &TouchEvent);
-
-    CHook::InlineHook(OBF("_ZN12CMenuManager20ProcessButtonPressesEv"), &CMenuManager_ProcessButtonPresses_hook, &CMenuManager_ProcessButtonPresses);
-    CHook::InlineHook(OBF("_ZN12CMenuManager17DrawLoadingScreenEv"), &CMenuManager_DrawLoadingScreen_hook, &CMenuManager_DrawLoadingScreen);
     CHook::InlineHook(OBF("_Z18OS_ServiceOpenLinkPKc"), &OS_ServiceOpenLink_hook, &OS_ServiceOpenLink);
     CHook::InlineHook(OBF("_ZN4CHud4DrawEv"), &CHud_Draw_hook, &CHud_Draw);
     CHook::InlineHook(OBF("_Z17OS_MovieIsPlayingPi"), &OS_MovieIsPlaying__hook, &OS_MovieIsPlaying);
