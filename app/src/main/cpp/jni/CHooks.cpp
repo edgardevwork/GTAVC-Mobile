@@ -43,7 +43,8 @@ void (*CHud_Draw)(uintptr_t);
 void CHud_Draw_hook(uintptr_t thiz)
 {
     //LOGI("libGTAVC.so: Patching the game...");
-    return;
+    return CHud_Draw(thiz);
+    //return;
 }
 
 #include "game/hooks.h"
