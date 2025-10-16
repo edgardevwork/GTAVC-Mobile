@@ -7,6 +7,9 @@
 
 
 class CLoadingScreen {
+public:
+    static void InjectHooks();
+    static int ResetLoadingScreenBar();
 
 };
 

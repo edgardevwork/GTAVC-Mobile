@@ -8,6 +8,7 @@
 #include "hooks.h"
 #include "game/RW/RenderWare.h"
 #include "game/RW/immedi.h"
+#include "CLoadingScreen.h"
 
 void Hooks::InstallCHooks()
 {
@@ -22,6 +23,6 @@ void Hooks::InstallCHooks()
 //#endif
 }
 
-void InjectHooks() {
-
+void Hooks::InjectHooks() {
+    CLoadingScreen::InjectHooks();
 }

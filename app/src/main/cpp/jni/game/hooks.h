@@ -4,6 +4,7 @@
 class Hooks {
 public:
     static void InstallCHooks();
+    static void InjectHooks();
 };
 
 #endif // HOOKS_H
