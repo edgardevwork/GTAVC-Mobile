@@ -11,6 +11,7 @@
 
 void Hooks::InstallCHooks()
 {
+    InjectHooks();
     CHooks::InitHooksEdgar();
     ((void (*)()) (g_libGTAVC + (VER_x32 ? 0x1D6F2C + 1 : 0x2ACDC4)))(); // CCoronas::DoSunAndMoon()
 
@@ -19,4 +20,8 @@ void Hooks::InstallCHooks()
 //#else
     //CHook::InlineHook(g_libGTAVC + 0x109050, &CDraw__SetFOV_hook, &CDraw__SetFOV);
 //#endif
+}
+
+void InjectHooks() {
+
 }

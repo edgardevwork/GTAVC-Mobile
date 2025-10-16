@@ -38,5 +38,13 @@ void ApplyPatches()
     CHook::RET(OBF("_ZN13cMusicManager10InitialiseEv")); // All music and radio
 
     CHook::RET(OBF("_ZN9CMessages7ProcessEv")); //CMessages::Process
+
+    //------EDGAR-3.0------GTASA------
+    CHook::RET(OBF("_ZN6CGlass4InitEv")); // CGlass::Init
+    CHook::RET(OBF("_ZN6CGangs10InitialiseEv")); // CGangs::Initialise
+    CHook::RET(OBF("_ZN5CHeli9InitHelisEv")); // CHeli::InitHelis(void)
+    CHook::RET(OBF("_ZN11CFileLoader10LoadPickupEPKc")); // CFileLoader::LoadPickup
+    //--Пока-не-над----CHook::RET(OBF("_ZN6CRadar10DrawLegendEiii")); // CRadar::DrawLgegend
+    //CHook::RET("_ZN6CRadar19AddBlipToLegendListEhi"); // CRadar::AddBlipToLegendList
 }
 
