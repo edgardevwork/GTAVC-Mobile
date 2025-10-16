@@ -10,7 +10,7 @@ void DisableAutoAim()
 {
     CHook::RET(OBF("_ZN10CPlayerPed22FindWeaponLockOnTargetEv")); // CPed::FindWeaponLockOnTarget
     CHook::RET(OBF("_ZN10CPlayerPed26FindNextWeaponLockOnTargetEP7CEntityb")); // CPed::FindNextWeaponLockOnTarget
-    CHook::RET("_ZN4CPed21SetWeaponLockOnTargetEP7CEntity"); // CPed::SetWeaponLockOnTarget
+    CHook::RET(OBF("_ZN4CPed21SetWeaponLockOnTargetEP7CEntity")); // CPed::SetWeaponLockOnTarget
 }
 
 void ApplyPatches()

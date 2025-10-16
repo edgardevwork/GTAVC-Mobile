@@ -43,11 +43,11 @@ void CHud_Draw_hook(uintptr_t thiz)
 #include "game/hooks.h"
 #include "dependencies/Dobby/include/dobby.h"
 void CHooks::InitHooksEdgar() {
-    CHook::InlineHook("_Z13LoadingScreenPKcS0_S0_", &LoadingScreen_hook, &LoadingScreen);
-    CHook::InlineHook("_ZN12CMenuManager20ProcessButtonPressesEv", &CMenuManager_ProcessButtonPresses_hook, &CMenuManager_ProcessButtonPresses);
-    CHook::InlineHook("_ZN12CMenuManager17DrawLoadingScreenEv", &CMenuManager_DrawLoadingScreen_hook, &CMenuManager_DrawLoadingScreen);
-    CHook::InlineHook("_Z18OS_ServiceOpenLinkPKc", &OS_ServiceOpenLink_hook, &OS_ServiceOpenLink);
-    CHook::InlineHook("_ZN4CHud4DrawEv", &CHud_Draw_hook, &CHud_Draw);
+    CHook::InlineHook(OBF("_Z13LoadingScreenPKcS0_S0_"), &LoadingScreen_hook, &LoadingScreen);
+    CHook::InlineHook(OBF("_ZN12CMenuManager20ProcessButtonPressesEv"), &CMenuManager_ProcessButtonPresses_hook, &CMenuManager_ProcessButtonPresses);
+    CHook::InlineHook(OBF("_ZN12CMenuManager17DrawLoadingScreenEv"), &CMenuManager_DrawLoadingScreen_hook, &CMenuManager_DrawLoadingScreen);
+    CHook::InlineHook(OBF("_Z18OS_ServiceOpenLinkPKc"), &OS_ServiceOpenLink_hook, &OS_ServiceOpenLink);
+    CHook::InlineHook(OBF("_ZN4CHud4DrawEv"), &CHud_Draw_hook, &CHud_Draw);
 
     /*#ifdef IS_ARM64
     DobbyHook((void *)GTA(0x206490), (void *)CMenuManager_ProcessButtonPresses_hook, (void **)&CMenuManager_ProcessButtonPresses);

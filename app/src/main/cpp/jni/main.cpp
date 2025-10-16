@@ -27,7 +27,7 @@ void TouchEvent_hook(int type, int num, int posX, int posY) {
 
 void EDGTA()
 {
-    CHook::InlineHook("_Z14AND_TouchEventiiii", &TouchEvent_hook, &TouchEvent);
+    CHook::InlineHook(OBF("_Z14AND_TouchEventiiii"), &TouchEvent_hook, &TouchEvent);
 }
 
 extern "C" JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void* reserved)
