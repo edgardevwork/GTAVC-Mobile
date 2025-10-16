@@ -1297,7 +1297,7 @@ public class WarMedia extends WarGamepad implements MediaPlayer.OnPreparedListen
     }
 
     public void PlayMovieInWindow(String inFilename, int x, int y, int width, int height, float inVolume, int inOffset, int inLength, int looping, boolean forceSize) {
-        /*System.out.println("PlayMovieInWindow filename " + inFilename + " movieWindowSurface " + this.movieWindowSurface + " inOffset " + inOffset + " inLength " + inLength);
+        System.out.println("PlayMovieInWindow filename " + inFilename + " movieWindowSurface " + this.movieWindowSurface + " inOffset " + inOffset + " inLength " + inLength);
         this.MovieIsSkippable = false;
         this.ForceSize = forceSize;
         System.out.println("PlayMovieInWindow ForceSize " + this.ForceSize + " width " + width + " height " + height);
@@ -1389,15 +1389,15 @@ public class WarMedia extends WarGamepad implements MediaPlayer.OnPreparedListen
                     }
                 }).start();
             }
-        });*/
+        });
     }
 
     public void PlayMovieInFile(String filename, float volume, int offset, int length) {
-        //PlayMovieInFile(filename, volume, offset, length, this.vidHolder);
+        PlayMovieInFile(filename, volume, offset, length, this.vidHolder);
     }
 
     public void PlayMovieInFile(String filename, float volume, int offset, int length, SurfaceHolder myVidHolder) {
-        /*String tempFilename;
+        String tempFilename;
         if (!(this.customMovieSurface == null || this.customMovieSurface == this.movieWindowSurface)) {
             this.customMovieSurface = null;
         }
@@ -1461,15 +1461,15 @@ public class WarMedia extends WarGamepad implements MediaPlayer.OnPreparedListen
                     WarMedia.this.bIsPlayingMovie = 0;
                 }
             }
-        });*/
+        });
     }
 
     public void PlayMovie(String filename, float Volume) {
-        //PlayMovie(filename, Volume, this.vidHolder);
+        PlayMovie(filename, Volume, this.vidHolder);
     }
 
     public void PlayMovie(String filename, float Volume, SurfaceHolder myVidHolder) {
-        /*String apkFilename;
+        String apkFilename;
         this.customMovieHolder = myVidHolder;
         this.bIsPlayingMovie = 1;
         this.currentMovieFilename = filename;
@@ -1541,11 +1541,11 @@ public class WarMedia extends WarGamepad implements MediaPlayer.OnPreparedListen
                 } catch (Exception e2) {
                 }
             }
-        });*/
+        });
     }
 
     public int IsMoviePlaying() {
-        /*if (this.bMoviePlayerPaused) {
+        if (this.bMoviePlayerPaused) {
             return 2;
         }
         if (this.bIsPlayingMovie == 1) {
@@ -1561,8 +1561,8 @@ public class WarMedia extends WarGamepad implements MediaPlayer.OnPreparedListen
             return 0;
         } catch (IllegalStateException e) {
             return 0;
-        }*/
-        return 0;
+        }
+        //return 0; //TODO: fix, не надо сделал перехват в OS_MovieIsPlaying__hook.
     }
 
     public String GetConfigSetting(String key) {

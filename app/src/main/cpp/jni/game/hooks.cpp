@@ -9,6 +9,7 @@
 #include "game/RW/RenderWare.h"
 #include "game/RW/immedi.h"
 #include "CLoadingScreen.h"
+#include "CMenuManager.h"
 
 void Hooks::InstallCHooks()
 {
@@ -25,4 +26,5 @@ void Hooks::InstallCHooks()
 
 void Hooks::InjectHooks() {
     CLoadingScreen::InjectHooks();
+    CMenuManager::InjectHooks();
 }

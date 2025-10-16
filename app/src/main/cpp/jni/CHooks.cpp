@@ -46,6 +46,11 @@ void CHud_Draw_hook(uintptr_t thiz)
     return CHud_Draw(thiz);
     //return;
 }
+int (*OS_MovieIsPlaying)(int *);
+int OS_MovieIsPlaying__hook(int *i) {
+    LOGI(MAKEOBF("OS_MovieIsPlaying__hook: %i"), i);
+    return 0;
+}
 
 #include "game/hooks.h"
 #include "dependencies/Dobby/include/dobby.h"
@@ -56,4 +61,5 @@ void CHooks::InitHooksEdgar() {
     CHook::InlineHook(OBF("_ZN12CMenuManager17DrawLoadingScreenEv"), &CMenuManager_DrawLoadingScreen_hook, &CMenuManager_DrawLoadingScreen);
     CHook::InlineHook(OBF("_Z18OS_ServiceOpenLinkPKc"), &OS_ServiceOpenLink_hook, &OS_ServiceOpenLink);
     CHook::InlineHook(OBF("_ZN4CHud4DrawEv"), &CHud_Draw_hook, &CHud_Draw);
+    CHook::InlineHook(OBF("_Z17OS_MovieIsPlayingPi"), &OS_MovieIsPlaying__hook, &OS_MovieIsPlaying);
 }

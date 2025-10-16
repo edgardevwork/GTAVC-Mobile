@@ -46,5 +46,16 @@ void ApplyPatches()
     CHook::RET(OBF("_ZN11CFileLoader10LoadPickupEPKc")); // CFileLoader::LoadPickup
     //--Пока-не-над----CHook::RET(OBF("_ZN6CRadar10DrawLegendEiii")); // CRadar::DrawLgegend
     //CHook::RET("_ZN6CRadar19AddBlipToLegendListEhi"); // CRadar::AddBlipToLegendList
+
+    //------EDGAR-3.0------GTAVC------
+    // Выключение видео, не надо сделал перехват в OS_MovieIsPlaying__hook.
+    /*CHook::RET(OBF("_Z13AND_PlayMoviePKcbbf")); // AND_PlayMovie(const char *, bool, char, float)
+    CHook::RET(OBF("_Z13AND_PlayMoviePKcbbiif")); // AND_PlayMovie(const char *, char, char, int, int, float)
+    CHook::RET(OBF("_Z20OS_MoviePlayinWindowPKciiiibbf")); // OS_MoviePlayinWindow(const char *, int, int, int, int, bool, bool, float)
+    CHook::RET(OBF("_Z21AND_MoviePlayInWindowPKciiiibbiif")); // AND_MoviePlayInWindow(const char *, int, int, int, int, bool, bool, int, int, float)
+    CHook::RET(OBF("_Z20OS_MovieSetSkippableb")); // OS_MovieSetSkippable(bool)
+    CHook::RET(OBF("_Z20AND_MovieIsSkippableb"));*/ // AND_MovieIsSkippable(bool)
+
+
 }
 
