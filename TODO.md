@@ -1,0 +1,1 @@
+- [x] Add assignment to set high byte of word_79B48C in CMenuManager__ProcessButtonPresses__hook to make HIBYTE condition true
