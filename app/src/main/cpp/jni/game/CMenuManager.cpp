@@ -10,6 +10,7 @@
 #include "main.h"
 #include "patch.h"
 #include "CMenuManager.h"
+#include <chrono>
 
 CMenuManager& FrontEndMenuManager = *(CMenuManager *)0x0;
 CMenuScreen* aScreens = (CMenuScreen*)0x0;
@@ -90,9 +91,29 @@ void CMenuManager__LoadSettings__hook(CMenuManager* this_) {
 }
 
 void (*CMenuManager__ProcessButtonPresses)(uintptr_t);
+
+static std::chrono::steady_clock::time_point lastLogTime = std::chrono::steady_clock::now();
+static bool gameInitialized = false;
+
 void CMenuManager__ProcessButtonPresses__hook(uintptr_t thiz)
 {
-    //LOGI(MAKEOBF("aGameState: %i"), *(int*)(g_libGTAVC + 0x991E84));
+    auto now = std::chrono::steady_clock::now();
+    LOGI(MAKEOBF("aGameState: %i"), *(int*)(g_libGTAVC + 0x991E84));
+
+    // Таймер 1 секунда
+    auto elapsed = std::chrono::duration_cast<std::chrono::seconds>(now - lastLogTime).count();
+    if (elapsed >= 1) {
+        if (!gameInitialized) {
+            int updated = CHook::CallFunction<int>("_Z14InitialiseGamev");
+            *(int *) (g_libGTAVC + 0x991E84) = 9;
+            *(char*)(g_libGTAVC + 0x79B4B8) = 0;
+            LOGI(MAKEOBF("Timer 1s: Updated: %i, aGameState: %i, char: %s"), updated,
+                 *(int *) (g_libGTAVC + 0x991E84), *(char *) (g_libGTAVC + 0x79B4B8));
+            gameInitialized = true;
+        }
+        lastLogTime = now;
+    }
+
     //LOGI(MAKEOBF("CMenuManager::ProcessButtonPresses called at %p"), thiz);
     return CMenuManager__ProcessButtonPresses(thiz);
 }
@@ -155,8 +176,7 @@ int CMenuManager__CheckSliderMovement__hook(CMenuManager* this_, float value) {
 void (*CMenuManager__Process)(CMenuManager*);
 void CMenuManager__Process__hook(CMenuManager* this_) {
     //LOGI(MAKEOBF("CMenuManager::Process called at %p"), this_);
-    return CMenuManager__Process(this_);/* CMenuManager::m_KeyPressedCode
-.data:000000000057EFA0 _ZN12CMenuManager16m_KeyPressedCodeE*/
+    return CMenuManager__Process(this_);
 }
 
 void CMenuManager::InjectHooks() {

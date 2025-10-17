@@ -11,6 +11,7 @@ public:
     void InitGame();
     void Process();
     void InjectHooks();
+    int InitialiseGame();
     void InitialiseOnceBeforeRW();
 private:
     CCamera* m_pGameCamera;
