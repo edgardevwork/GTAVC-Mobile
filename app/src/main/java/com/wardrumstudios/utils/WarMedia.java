@@ -1220,7 +1220,7 @@ public class WarMedia extends WarGamepad implements MediaPlayer.OnPreparedListen
             public void surfaceCreated(SurfaceHolder holder) {
                 boolean unused = WarMedia.this.movieTextViewIsActive = true;
                 Canvas canvas = WarMedia.this.movieTextHolder.lockCanvas();
-                canvas.drawColor(0, PorterDuff.Mode.CLEAR);
+                //canvas.drawColor(0, PorterDuff.Mode.CLEAR); //TODO: Attempt to invoke virtual method 'void android.graphics.Canvas.drawColor(int, android.graphics.PorterDuff$Mode)' on a null object reference
                 WarMedia.this.movieTextHolder.unlockCanvasAndPost(canvas);
                 if (!WarMedia.this.movieViewCreated) {
                     System.out.println("movieTextSurface surfaceCreated firsttime");

@@ -11,10 +11,18 @@
 #include "CLoadingScreen.h"
 #include "CMenuManager.h"
 
+int(*Render2dStuff)();
+int Render2dStuff_hook()
+{
+    LOGI(MAKEOBF("aGameState: %i"), *(int*)(g_libGTAVC + 0x991E84));
+    return Render2dStuff();
+}
+
 void Hooks::InstallCHooks()
 {
     InjectHooks();
     CHooks::InitHooksEdgar();
+    CHook::InlineHook("_Z13Render2dStuffv", &Render2dStuff_hook, &Render2dStuff);
     ((void (*)()) (g_libGTAVC + (VER_x32 ? 0x1D6F2C + 1 : 0x2ACDC4)))(); // CCoronas::DoSunAndMoon()
 
 //#if VER_x32

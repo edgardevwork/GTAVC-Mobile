@@ -36,10 +36,15 @@ void CGame::InjectHooks()
 void CGame::InitGame()
 {
     LOGI(MAKEOBF("libGTAVC.so: Game has been inited!"));
-        //ApplyPatches();
-        InitScripting();
-        ApplyPatches();
-        //InstallHooks();
+    //ApplyPatches();
+    InitScripting();
+    ApplyPatches();
+    //InstallHooks();
+    //*(int*)(g_libGTAVC + 0x991E84) = 5;
+    /*(char*)(g_libGTAVC + 0x7AB18C) = 0;
+    *(short*)(g_libGTAVC + 0x6E00C0) = 0;
+    *(int*)(g_libGTAVC + 0x6E0098) = 0;
+    *(char*)(g_libGTAVC + 0x6E00D9) = 0;*/
 }
 
 

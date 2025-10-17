@@ -67,94 +67,96 @@ void CMenuManager::LoadSettings() {
 // Hook functions
 void (*CMenuManager__Draw)(CMenuManager*);
 void CMenuManager__Draw__hook(CMenuManager* this_) {
-    LOGI(MAKEOBF("CMenuManager::Draw called at %p"), this_);
+    //LOGI(MAKEOBF("CMenuManager::Draw called at %p"), this_);
     return CMenuManager__Draw(this_);
 }
 
 void (*CMenuManager__PrintMap)(CMenuManager*);
 void CMenuManager__PrintMap__hook(CMenuManager* this_) {
-    LOGI(MAKEOBF("CMenuManager::PrintMap called at %p"), this_);
+    //LOGI(MAKEOBF("CMenuManager::PrintMap called at %p"), this_);
     return CMenuManager__PrintMap(this_);
 }
 
 void (*CMenuManager__SaveSettings)(CMenuManager*);
 void CMenuManager__SaveSettings__hook(CMenuManager* this_) {
-    LOGI(MAKEOBF("CMenuManager::SaveSettings called at %p"), this_);
+    //LOGI(MAKEOBF("CMenuManager::SaveSettings called at %p"), this_);
     return CMenuManager__SaveSettings(this_);
 }
 
 void (*CMenuManager__LoadSettings)(CMenuManager*);
 void CMenuManager__LoadSettings__hook(CMenuManager* this_) {
-    LOGI(MAKEOBF("CMenuManager::LoadSettings called at %p"), this_);
+    //LOGI(MAKEOBF("CMenuManager::LoadSettings called at %p"), this_);
     return CMenuManager__LoadSettings(this_);
 }
 
 void (*CMenuManager__ProcessButtonPresses)(uintptr_t);
 void CMenuManager__ProcessButtonPresses__hook(uintptr_t thiz)
 {
-    LOGI(MAKEOBF("CMenuManager::ProcessButtonPresses called at %p"), thiz);
+    //LOGI(MAKEOBF("aGameState: %i"), *(int*)(g_libGTAVC + 0x991E84));
+    //LOGI(MAKEOBF("CMenuManager::ProcessButtonPresses called at %p"), thiz);
     return CMenuManager__ProcessButtonPresses(thiz);
 }
 
 void (*CMenuManager__DrawLoadingScreen)(uintptr_t);
 void CMenuManager__DrawLoadingScreen__hook(uintptr_t thiz)
 {
-    LOGI(MAKEOBF("CMenuManager::DrawLoadingScreen called at %p"), thiz);
+    //LOGI(MAKEOBF("CMenuManager::DrawLoadingScreen called at %p"), thiz);
     return CMenuManager__DrawLoadingScreen(thiz);
 }
 
 void (*CMenuManager__MessageScreen)(CMenuManager*, const char*, bool);
 void CMenuManager__MessageScreen__hook(CMenuManager* this_, const char* pText, bool bFullscreen) {
-    LOGI(MAKEOBF("CMenuManager::MessageScreen called at %p with text=%s, fullscreen=%d"), this_, pText, bFullscreen);
+    //LOGI(MAKEOBF("CMenuManager::MessageScreen called at %p with text=%s, fullscreen=%d"), this_, pText, bFullscreen);
     return CMenuManager__MessageScreen(this_, pText, bFullscreen);
 }
 
 int (*CMenuManager__FadeIn)(CMenuManager*, int);
 int CMenuManager__FadeIn__hook(CMenuManager* this_, int alpha) {
-    LOGI(MAKEOBF("CMenuManager::FadeIn called at %p with alpha=%d"), this_, alpha);
+    //LOGI(MAKEOBF("CMenuManager::FadeIn called at %p with alpha=%d"), this_, alpha);
     return CMenuManager__FadeIn(this_, alpha);
 }
 
 bool (*CMenuManager__CheckHover)(CMenuManager*, int, int, int, int);
 bool CMenuManager__CheckHover__hook(CMenuManager* this_, int x1, int x2, int y1, int y2) {
-    LOGI(MAKEOBF("CMenuManager::CheckHover called at %p with x1=%d, x2=%d, y1=%d, y2=%d"), this_, x1, x2, y1, y2);
+    //LOGI(MAKEOBF("CMenuManager::CheckHover called at %p with x1=%d, x2=%d, y1=%d, y2=%d"), this_, x1, x2, y1, y2);
     return CMenuManager__CheckHover(this_, x1, x2, y1, y2);
 }
 
 int (*CMenuManager__DisplayHelperText)(CMenuManager*, const char*);
 int CMenuManager__DisplayHelperText__hook(CMenuManager* this_, const char* text) {
-    LOGI(MAKEOBF("CMenuManager::DisplayHelperText called at %p with text=%s"), this_, text);
+    //LOGI(MAKEOBF("CMenuManager::DisplayHelperText called at %p with text=%s"), this_, text);
     return CMenuManager__DisplayHelperText(this_, text);
 }
 
 void (*CMenuManager__RequestFrontEndShutDown)(CMenuManager*);
 void CMenuManager__RequestFrontEndShutDown__hook(CMenuManager* this_) {
-    LOGI(MAKEOBF("CMenuManager::RequestFrontEndShutDown called at %p"), this_);
+    //LOGI(MAKEOBF("CMenuManager::RequestFrontEndShutDown called at %p"), this_);
     return CMenuManager__RequestFrontEndShutDown(this_);
 }
 
 void (*CMenuManager__RequestFrontEndStartUp)(CMenuManager*);
 void CMenuManager__RequestFrontEndStartUp__hook(CMenuManager* this_) {
-    LOGI(MAKEOBF("CMenuManager::RequestFrontEndStartUp called at %p"), this_);
+    //LOGI(MAKEOBF("CMenuManager::RequestFrontEndStartUp called at %p"), this_);
     return CMenuManager__RequestFrontEndStartUp(this_);
 }
 
 void (*CMenuManager__SwitchMenuOnAndOff)(CMenuManager*);
 void CMenuManager__SwitchMenuOnAndOff__hook(CMenuManager* this_) {
-    LOGI(MAKEOBF("CMenuManager::SwitchMenuOnAndOff called at %p"), this_);
+    //LOGI(MAKEOBF("CMenuManager::SwitchMenuOnAndOff called at %p"), this_);
     return CMenuManager__SwitchMenuOnAndOff(this_);
 }
 
 int (*CMenuManager__CheckSliderMovement)(CMenuManager*, float);
 int CMenuManager__CheckSliderMovement__hook(CMenuManager* this_, float value) {
-    LOGI(MAKEOBF("CMenuManager::CheckSliderMovement called at %p with value=%f"), this_, value);
+    //LOGI(MAKEOBF("CMenuManager::CheckSliderMovement called at %p with value=%f"), this_, value);
     return CMenuManager__CheckSliderMovement(this_, value);
 }
 
 void (*CMenuManager__Process)(CMenuManager*);
 void CMenuManager__Process__hook(CMenuManager* this_) {
-    LOGI(MAKEOBF("CMenuManager::Process called at %p"), this_);
-    return CMenuManager__Process(this_);
+    //LOGI(MAKEOBF("CMenuManager::Process called at %p"), this_);
+    return CMenuManager__Process(this_);/* CMenuManager::m_KeyPressedCode
+.data:000000000057EFA0 _ZN12CMenuManager16m_KeyPressedCodeE*/
 }
 
 void CMenuManager::InjectHooks() {

@@ -9,13 +9,13 @@
 void (*LoadingScreen)(const char *, const char *, const char *);
 void LoadingScreen__hook(const char *text, const char *text1, const char *text2)
 {
-    LOGI(MAKEOBF("CLoadingScreen::LoadingScreen: text: %s, text1: %s, text2: %s"), text, text1, text2);
+    //LOGI(MAKEOBF("CLoadingScreen::LoadingScreen: text: %s, text1: %s, text2: %s"), text, text1, text2);
     return LoadingScreen(text, text1, text2);
 }
 
 int (*LoadingScreenLoadingFile)(const char *);
 int LoadingScreenLoadingFile__hook(const char *text) {
-    LOGI(MAKEOBF("CLoadingScreen::LoadingScreenLoadingFile: text: %s"), text);
+    //LOGI(MAKEOBF("CLoadingScreen::LoadingScreenLoadingFile: text: %s"), text);
     return LoadingScreenLoadingFile(text);
 }
 
