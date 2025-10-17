@@ -98,7 +98,7 @@ static bool gameInitialized = false;
 void CMenuManager__ProcessButtonPresses__hook(uintptr_t thiz)
 {
     auto now = std::chrono::steady_clock::now();
-    LOGI(MAKEOBF("aGameState: %i"), *(int*)(g_libGTAVC + 0x991E84));
+    //LOGI(MAKEOBF("aGameState: %i"), *(int*)(g_libGTAVC + 0x991E84));
 
     // Таймер 1 секунда
     auto elapsed = std::chrono::duration_cast<std::chrono::seconds>(now - lastLogTime).count();
@@ -107,6 +107,9 @@ void CMenuManager__ProcessButtonPresses__hook(uintptr_t thiz)
             int updated = CHook::CallFunction<int>("_Z14InitialiseGamev");
             *(int *) (g_libGTAVC + 0x991E84) = 9;
             *(char*)(g_libGTAVC + 0x79B4B8) = 0;
+            /**(short*)(g_libGTAVC + 0x6E00C0) = 0;
+            *(int*)(g_libGTAVC + 0x6E0098) = 0;
+            *(char*)(g_libGTAVC + 0x6E00D9) = 0;*/
             LOGI(MAKEOBF("Timer 1s: Updated: %i, aGameState: %i, char: %s"), updated,
                  *(int *) (g_libGTAVC + 0x991E84), *(char *) (g_libGTAVC + 0x79B4B8));
             gameInitialized = true;

@@ -16,14 +16,14 @@ struct CHID;
 int(*Render2dStuff)();
 int Render2dStuff_hook()
 {
-    LOGI(MAKEOBF("aGameState: %i"), *(int*)(g_libGTAVC + 0x991E84));
+    //LOGI(MAKEOBF("aGameState: %i"), *(int*)(g_libGTAVC + 0x991E84));
     return Render2dStuff();
 }
 
 bool(*MainGameTick)(float, CHID*);
 bool MainGameTick_hook(float a1, CHID *a2)
 {
-    LOGI(MAKEOBF("MainGameTick called with a1: %f"), a1);
+    //LOGI(MAKEOBF("MainGameTick called with a1: %f"), a1);
     return MainGameTick(a1, a2);
 }
 
