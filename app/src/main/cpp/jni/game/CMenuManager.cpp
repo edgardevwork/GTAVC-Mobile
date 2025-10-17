@@ -93,36 +93,9 @@ void CMenuManager__LoadSettings__hook(CMenuManager* this_) {
 void (*CMenuManager__ProcessButtonPresses)(uintptr_t);
 
 static std::chrono::steady_clock::time_point lastLogTime = std::chrono::steady_clock::now();
-static bool gameInitialized = false;
 
 void CMenuManager__ProcessButtonPresses__hook(uintptr_t thiz)
 {
-    auto now = std::chrono::steady_clock::now();
-    //LOGI(MAKEOBF("aGameState: %i"), *(int*)(g_libGTAVC + 0x991E84));
-
-    // Таймер 1 секунда
-    auto elapsed = std::chrono::duration_cast<std::chrono::seconds>(now - lastLogTime).count();
-    if (elapsed >= 1) {
-        if (!gameInitialized) {
-            //int updated = CHook::CallFunction<int>("_Z14InitialiseGamev");
-            //*(int *) (g_libGTAVC + 0x991E84) = 9;
-            *(char*)(g_libGTAVC + 0x79B4B8) = 0;
-            // Set word_79B48C to 0x0100 to make HIBYTE(word_79B48C) non-zero and !(_BYTE)word_79B48C true for LABEL_35
-            *(short*)(g_libGTAVC + 0x79B48C) = 0x0100;
-            // Set byte_79B491 to 1 to make the condition !(_BYTE)word_79B48C || byte_79B491 true
-            *(char*)(g_libGTAVC + 0x79B491) = 1;
-            // Set dword_991C3C to 0 for return condition
-            *(int*)(g_libGTAVC + 0x991C3C) = 0;
-            /**(short*)(g_libGTAVC + 0x6E00C0) = 0;
-            *(int*)(g_libGTAVC + 0x6E0098) = 0;
-            *(char*)(g_libGTAVC + 0x6E00D9) = 0;*/
-            LOGI(MAKEOBF("Timer 1s: Updated: %i, aGameState: %i, char: %s"), 1,
-                 *(int *) (g_libGTAVC + 0x991E84), *(char *) (g_libGTAVC + 0x79B4B8));
-            gameInitialized = true;
-        }
-        lastLogTime = now;
-    }
-
     //LOGI(MAKEOBF("CMenuManager::ProcessButtonPresses called at %p"), thiz);
     return CMenuManager__ProcessButtonPresses(thiz);
 }

@@ -19,3 +19,17 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+# Keep all classes in the rockstargames package to prevent obfuscation
+-keep class com.rockstargames.** { *; }
+
+# Keep all classes in the nvidia package to prevent obfuscation
+-keep class com.nvidia.** { *; }
+
+# Keep all classes in the war package to prevent obfuscation
+-keep class com.wardrumstudios.** { *; }
+
+# Adapt resource filenames to obfuscate resource names
+-adaptresourcefilenames **/*.xml
+-adaptresourcefilenames **/*.json
+-adaptresourcefilenames **/*.txt
