@@ -1,7 +1,7 @@
 //
 // Created by vadim on 11.06.2025.
 //
-#include "../main.h"
+#include "main.h"
 #include "patches.h"
 #include "CHooks.h"
 #include "vendor/armhook/patch.h"
@@ -32,7 +32,7 @@ void NvUtilInit_hook(void)
     char* StorageRootBuffer = (char*)((uintptr_t)g_libGTAVC + (VER_x32 ? 0x751838 : 0x9C8E58));
 
     // Записываем строку с контролем длины
-    strncpy(StorageRootBuffer, "/storage/emulated/0/EdgarVC/", BUFFER_SIZE - 1);
+    strncpy(StorageRootBuffer, OBF("/storage/emulated/0/EdgarVC/"), BUFFER_SIZE - 1);
     StorageRootBuffer[BUFFER_SIZE - 1] = '\0';
 
     g_pStorage = (char *)(g_libGTAVC + (VER_x32 ? 0x751838 : 0x9C8E58));
