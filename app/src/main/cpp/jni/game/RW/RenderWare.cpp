@@ -1,6 +1,6 @@
 #include "../../main.h"
 #include "RenderWare.h"
-#include "dependencies/armhook/patch.h"
+#include "vendor/armhook/patch.h"
 
 RsGlobalType* RsGlobal;
 

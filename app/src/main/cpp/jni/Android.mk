@@ -2,7 +2,7 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := Dobby
-LOCAL_SRC_FILES := $(LOCAL_PATH)/dependencies/Dobby/$(TARGET_ARCH_ABI)/libdobby.a
+LOCAL_SRC_FILES := $(LOCAL_PATH)/vendor/Dobby/$(TARGET_ARCH_ABI)/libdobby.a
 LOCAL_SHARED_LIBRARIES += shadowhook
 include $(PREBUILT_STATIC_LIBRARY)
 
@@ -13,11 +13,11 @@ LOCAL_MODULE := VCMP
 FILE_LIST := $(wildcard $(LOCAL_PATH)/*.cpp)
 FILE_LIST += $(wildcard $(LOCAL_PATH)/game/*.cpp)
 FILE_LIST += $(wildcard $(LOCAL_PATH)/game/RW/RenderWare.cpp)
-FILE_LIST += $(wildcard $(LOCAL_PATH)/dependencies/armhook/*.cpp)
+FILE_LIST += $(wildcard $(LOCAL_PATH)/vendor/armhook/*.cpp)
 LOCAL_SRC_FILES := $(FILE_LIST:$(LOCAL_PATH)/%=%)
 
-FILE_LIST_H := $(wildcard $(LOCAL_PATH)/dependencies/armhook/*.h)
-LOCAL_C_INCLUDES := $(LOCAL_PATH) $(LOCAL_PATH)/dependencies/armhook
+FILE_LIST_H := $(wildcard $(LOCAL_PATH)/vendor/armhook/*.h)
+LOCAL_C_INCLUDES := $(LOCAL_PATH) $(LOCAL_PATH)/vendor/armhook
 
 LOCAL_CPPFLAGS := -w -s -fvisibility=hidden -pthread -Wall -fpack-struct=1 -O2 -std=c++14 -fexceptions
 

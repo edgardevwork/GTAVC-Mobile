@@ -13,6 +13,10 @@
 > * Native integration through `JNI_OnLoad`  
 > * TODO: Online multiplayer support via plugin
 
+## > CACHE
+> * Чтобы запустить надо файл GTA3sfONLY.b акинуть в корень папки files/
+> * И не обязательно поместить cache/data/main.txt/main.scm в files/data
+
 ## ᐳ Credits
 > - [**EDGAR**](https://github.com/edgardevwork) — Main author
 > - [**DobbyHook**](https://github.com/jmpews/Dobby) — Lightweight inline hook framework  

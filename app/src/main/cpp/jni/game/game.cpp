@@ -43,17 +43,6 @@ void CGame::InitGame()
     //ApplyPatches();
     InitScripting();
     ApplyPatches();
-    /*int updated = InitialiseGame();
-    *(int*)(g_libGTAVC + 0x991E84) = 9;
-    *(char*)(g_libGTAVC + 0x79B4B8) = 0;
-    LOGI(MAKEOBF("Updated: %i, aGameState: %i, char: %s"), updated, *(int*)(g_libGTAVC + 0x991E84), *(char*)(g_libGTAVC + 0x79B4B8));*/
-    //goto LABEL_35;
-    //InstallHooks();
-
-    /*(g_libGTAVC + 0x7AB18C) = 0;
-    *(short*)(g_libGTAVC + 0x6E00C0) = 0;
-    *(int*)(g_libGTAVC + 0x6E0098) = 0;
-    *(char*)(g_libGTAVC + 0x6E00D9) = 0;*/
 }
 
 

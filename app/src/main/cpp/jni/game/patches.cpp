@@ -4,7 +4,7 @@
 #include "../main.h"
 #include "patches.h"
 #include "CHooks.h"
-#include "dependencies/armhook/patch.h"
+#include "vendor/armhook/patch.h"
 
 void DisableAutoAim()
 {
@@ -55,7 +55,6 @@ void ApplyPatches()
     CHook::RET(OBF("_Z21AND_MoviePlayInWindowPKciiiibbiif")); // AND_MoviePlayInWindow(const char *, int, int, int, int, bool, bool, int, int, float)
     CHook::RET(OBF("_Z20OS_MovieSetSkippableb")); // OS_MovieSetSkippable(bool)
     CHook::RET(OBF("_Z20AND_MovieIsSkippableb"));*/// AND_MovieIsSkippable(bool)
-
 
 }
 

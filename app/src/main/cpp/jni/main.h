@@ -12,7 +12,7 @@
 #include <iostream>
 
 #include "shadowhook.h"
-#include "dependencies/obfuscator/obfusheader.h"
+#include "vendor/obfuscator/obfusheader.h"
 #include "ARMHook.h"
 #include "game/patches.h"
 #include "str_obfuscate.hpp"

@@ -41,7 +41,7 @@ int OS_MovieIsPlaying__hook(int *i) {
 }
 
 #include "game/hooks.h"
-#include "dependencies/Dobby/include/dobby.h"
+#include "vendor/Dobby/include/dobby.h"
 void CHooks::InitHooksEdgar() {
     CHook::InlineHook(OBF("_Z14AND_TouchEventiiii"), &TouchEvent_hook, &TouchEvent);
     CHook::InlineHook(OBF("_Z18OS_ServiceOpenLinkPKc"), &OS_ServiceOpenLink_hook, &OS_ServiceOpenLink);

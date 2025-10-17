@@ -21,7 +21,7 @@
 #-renamesourcefileattribute SourceFile
 
 # Keep all classes in the rockstargames package to prevent obfuscation
--keep class com.rockstargames.** { *; }
+-keep class com.rockstargames.gtavc.GTAVC { *; }
 
 # Keep all classes in the nvidia package to prevent obfuscation
 -keep class com.nvidia.** { *; }
