@@ -16,3 +16,5 @@ local.properties
 ida/libGTASA-32-2.1.txt
 ida/Новая папка/libGTAVC-32-damb.txt
 ida/libGTAVC-64-DAMB.txt
+ida/libGTAVC.so.i64
+ida/Новая папка/libGTAVC.so.idb

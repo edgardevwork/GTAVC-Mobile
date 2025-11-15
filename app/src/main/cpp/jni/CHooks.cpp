@@ -47,4 +47,5 @@ void CHooks::InitHooksEdgar() {
     CHook::InlineHook(OBF("_Z18OS_ServiceOpenLinkPKc"), &OS_ServiceOpenLink_hook, &OS_ServiceOpenLink);
     CHook::InlineHook(OBF("_ZN4CHud4DrawEv"), &CHud_Draw_hook, &CHud_Draw);
     CHook::InlineHook(OBF("_Z17OS_MovieIsPlayingPi"), &OS_MovieIsPlaying__hook, &OS_MovieIsPlaying);
+    *(int*)(GTA(VER_x32 ? 0x5A9FF5 : 0x79B459)) = 1; // Fps ON
 }
