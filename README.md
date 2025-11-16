@@ -21,6 +21,7 @@
 
 ## ᐳ Author
 > - [**EDGAR**](https://github.com/edgardevwork) - Main author
+> - [**Connection**](https://t.me/edgardevwork)
 
 ## ᐳ Credits
 > - [**DobbyHook**](https://github.com/jmpews/Dobby) - Lightweight framework for embedded
@@ -48,6 +49,7 @@
 
 ## ᐳ Автор
 > - [**ЭДГАР**](https://github.com/edgardevwork) — Основной автор
+> - [**Связь**](https://t.me/edgardevwork)
 
 ## ᐳ Кредиты
 > - [**DobbyHook**](https://github.com/jmpews/Dobby) — Облегченный фреймворк для встроенного подключения
