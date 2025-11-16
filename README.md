@@ -27,6 +27,8 @@
 ## ᐳ Credits
 > - [**DobbyHook**](https://github.com/jmpews/Dobby) - Lightweight framework for embedded
 
+### Please specify the author!! - EDGAR 3.0
+
 ### `RU`
 # ᐳ GTAVC-Исходный код для GTA: Vice City Android
 
@@ -56,3 +58,5 @@
 ## ᐳ Кредиты
 > - [**DobbyHook**](https://github.com/jmpews/Dobby) — Облегченный фреймворк для встроенного подключения
 > - [**ShadowHook**](https://github.com/bytedance/android-inline-hook) — Библиотека для подключения функций Android от ByteDance
+
+### Пожалуйста указывайте автора!! - EDGAR 3.0
