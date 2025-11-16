@@ -13,7 +13,7 @@
 > * Saved in GTA3sfONLY
 > * Built-in integration using `JNI_OnLoad`
 > * Added path for cache -> `/storage/emulated/0/EdgarVC/`
-> * Regular cache [**GTA:VC**](https://mobdisc.com/fdl/83b1c2c9-03ef-4d28-a338-39362ff3ee22/Grand-Theft-Auto-Vice-City-v1-12-cache.zip) is suitable
+> * Regular cache [**GTA:VC**](https://pdalife.to/grand-theft-auto-vice-city-android-a2431.html?ysclid=mi1xv826uv636124192) is suitable
 > * TASK: support for online multiplayer game using a plugin
 
 ## > CACHE
@@ -44,7 +44,7 @@
 > * Сохранение сделанно в GTA3sfONLY
 > * Встроенная интеграция с помощью `JNI_OnLoad`
 > * Добавлен путь для кеша -> `/storage/emulated/0/EdgarVC/`
-> * Подходит обычный кеш [**GTA:VC**](https://mobdisc.com/fdl/83b1c2c9-03ef-4d28-a338-39362ff3ee22/Grand-Theft-Auto-Vice-City-v1-12-cache.zip)
+> * Подходит обычный кеш [**GTA:VC**](https://pdalife.to/grand-theft-auto-vice-city-android-a2431.html?ysclid=mi1xv826uv636124192)
 > * ЗАДАЧА: поддержка многопользовательской онлайн-игры с помощью плагина
 
 ## > КЭШ
