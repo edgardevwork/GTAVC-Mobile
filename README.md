@@ -5,7 +5,7 @@
 > * **AArch**: `armeabi-v7a`, `arm64-v8a`
 > * **Platform**: `Android 15+`
 > * **NDK Version**: `NDK26`
-> * **No-Crust Version in JNI on** `64 and 32 bits`
+> * **No-Crash Version in JNI on** `64 and 32 bits`
 
 ## ᐳ Supplement
 > * Re-designed render engine components: `RwWorld`, `RpSkin`, `RwCore`, "rphanim", and others
