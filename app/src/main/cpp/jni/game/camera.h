@@ -6,5 +6,5 @@ public:
 	CCamera() { }
 	~CCamera() {}
 
-	void SetBehindPlayer();
+	static void SetBehindPlayer();
 };

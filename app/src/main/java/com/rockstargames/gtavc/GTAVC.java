@@ -4,10 +4,11 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Environment;
+
+import com.bytedance.shadowhook.ShadowHook;
 import com.wardrumstudios.utils.WarDownloaderService;
 import com.wardrumstudios.utils.WarMedia;
 import java.io.File;
-import com.bytedance.shadowhook.ShadowHook;
 
 public class GTAVC extends WarMedia {
     public static GTAVC mySelf = null;

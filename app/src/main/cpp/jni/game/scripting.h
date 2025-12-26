@@ -28,6 +28,6 @@ struct SCRIPT_COMMAND
 
 int ScriptCommand(const SCRIPT_COMMAND* ScriptCommand, ...);
 
-const SCRIPT_COMMAND set_camera_behind_player	= { 0x0373, "" };
+const SCRIPT_COMMAND set_camera_behind_player	= { 0x0373, ""};
 const SCRIPT_COMMAND toggle_player_controllable = { 0x01B4, "ii" };
 const SCRIPT_COMMAND set_camera					= { 0x03CB, "fff" };

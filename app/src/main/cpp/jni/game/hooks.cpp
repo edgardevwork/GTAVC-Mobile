@@ -11,17 +11,19 @@
 #include "CLoadingScreen.h"
 #include "CMenuManager.h"
 #include "CFileMgr.h"
+#include "camera.h"
 
 struct CHID;
 
 int (*Render2dStuff)();
 int Render2dStuff_hook()
 {
+    ///if (*(int *) (g_libGTAVC + (VER_x32 ? 0x7152BC : 0x991E84)) == 9) CCamera::SetBehindPlayer();
     //LOGI(MAKEOBF("aGameState: %i"), *(int *)(g_libGTAVC + (VER_x32 ? 0x7152BC : 0x991E84)));
     return Render2dStuff();
 }
 
-#include <string.h>
+#include <cstring>
 void (*NvUtilInit)(void);
 void NvUtilInit_hook(void)
 {
